@@ -7,6 +7,21 @@
 //   palindrome("abba") === true
 //   palindrome("abcdefg") === false
 
-function palindrome(str) {}
+function palindrome1(str) {
+  let reversed = [...str].reverse().join('');
+  // compare reversed with str
+  return reversed === str;
+}
+
+/*
+propose this to have something to talk about then provide a better solution (above)
+Once every gets to the middle it would do checks until it goes back out. which is extra steps
+*/
+function palindrome(str) {
+  return [...str].every((char, i) => {
+    // we use - 1 because arrays are 0 indexed
+    return char === str[str.length - i - 1];
+  });
+}
 
 module.exports = palindrome;
